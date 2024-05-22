@@ -18,7 +18,8 @@ app.use((req, res, next) => {
 })
 
 // Routes
-app.use(process.env.API_PATH, userRoutes)
+app.use(process.env.API_PATH+'/user', userRoutes)
+
 
 
 // Db connection
