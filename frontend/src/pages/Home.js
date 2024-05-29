@@ -1,9 +1,12 @@
-// import { useEffect } from "react"
+import { useEffect } from "react"
+import { useAuthContext } from "../hooks/useAuthContext"
 
 // Components
 
 
 const Home = () => {
+    const { user } = useAuthContext()
+
 
     return (
         <div className="home">
@@ -13,4 +16,4 @@ const Home = () => {
 }
 
 
-export default Home
+export default Home;

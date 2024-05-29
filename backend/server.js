@@ -3,6 +3,9 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const userRoutes = require('./routes/user')
+const projectRoutes = require('./routes/project')
+const cors = require('cors')
+
 
 
 
@@ -11,14 +14,18 @@ const app = express()
 
 
 // Middleware
+
 app.use(express.json())
+app.use(cors())
 app.use((req, res, next) => {
     console.log(req.path, req.method)
     next()
 })
 
 // Routes
-app.use(process.env.API_PATH+'/user', userRoutes)
+app.use(`${process.env.API_PATH}/user`, userRoutes)
+app.use(`${process.env.API_PATH}/project`, projectRoutes)
+
 
 
 
